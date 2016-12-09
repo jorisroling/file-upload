@@ -523,7 +523,10 @@ Example:
       if (!file) {
         return;
       }
-      this.fire('before-upload');
+      this.fire('before-upload',file);
+      if (!this.method) {
+          return;
+      }
       this._showDropText();
       var prefix = 'files.' + this.files.indexOf(file);
       var self = this;
